@@ -8,6 +8,7 @@ namespace TodoAPI.Controllers
     public class TodoController : ControllerBase
     {
         private readonly TodoRepository _repository = new TodoRepository();
+         private readonly TodoRepository _repository = new TodoRepository();
 
         [HttpGet]
         public ActionResult<List<TodoItem>> Get()

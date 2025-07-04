@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+
 namespace TodoAPI
 {
     public class Program
@@ -21,6 +23,24 @@ namespace TodoAPI
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                // Automatically open browser at /swagger when using dotnet run while using Kestrel (via CLI)
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "http://localhost:5083/swagger",
+                    UseShellExecute = true
+                });
+
+                // Add redirect from root ("/") to Swagger while using Kestrel (via CLI)
+                app.Use(async (context, next) =>
+                {
+                    if (context.Request.Path == "/")
+                    {
+                        context.Response.Redirect("/swagger");
+                        return;
+                    }
+                    await next();
+                });
             }
 
             app.UseAuthorization();

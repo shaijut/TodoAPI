@@ -1,7 +1,7 @@
 
 🚀 A fast , minimal REST API built with .NET 9 and SQLite — perfect for powering Todo apps, prototyping ideas, or plugging into any frontend with zero hassle.
 
-## 🔧 Prerequisites
+## 🛠️ Prerequisites
 
 -   Download [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
     
@@ -31,7 +31,7 @@
 -   Optionally, inspect the SQLite database or test with Postman (see below)
         
 
-## 📦 SQLite Database
+## 🛢️ SQLite Database
 
 To view or edit stored data:
 
@@ -55,7 +55,7 @@ To view or edit stored data:
     -   Use the included `GET`, `POST`, `PUT`, and `DELETE` endpoints.
         
 
-### API Endpoints
+### 🔌 API Endpoints
 
 -   `GET /api/todos` — Get all todos
     

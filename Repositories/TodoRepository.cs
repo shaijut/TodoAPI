@@ -36,7 +36,7 @@ namespace TodoAPI.Repositories
             return todos;
         }
 
-        public TodoItem GetById(int id)
+        public TodoItem? GetById(int id)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {

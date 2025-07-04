@@ -32,8 +32,8 @@ echo ----------------------------------------
 dotnet restore
 
 echo ----------------------------------------
-echo 	[INFO] If no errors occur below while running the API,
-echo         it should be available at: http://localhost:5083
+echo   [INFO] If no errors occur below while running the API,
+echo        it should be available at: http://localhost:5083
 echo ----------------------------------------
 
 echo   [Running] API... :)

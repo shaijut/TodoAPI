@@ -22,7 +22,7 @@
         
     -   This will restore dependencies and launch the API at `http://localhost:5083`
         
-3.  **Test the API**
+3.  ✨ **Test the API**
     
 -   Visit `http://localhost:5083/swagger` to explore and test endpoints via Swagger UI
     

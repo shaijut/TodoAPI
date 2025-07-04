@@ -3,7 +3,7 @@
 
 ## 🔧 Prerequisites
 
--   [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+-   Download [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
     
 -   (Optional) [DB Browser for SQLite](https://sqlitebrowser.org/) — to inspect the local database.
     

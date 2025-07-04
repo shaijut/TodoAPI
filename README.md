@@ -1,88 +1,93 @@
-# Todo API Project
 
-Welcome to the Todo API project! This project is a simple RESTful API built with .NET Core 8 and SQLite. It provides basic CRUD operations for managing todo items. Follow the instructions below to set up and run the project, and test the API using Postman.
+🚀 A fast , minimal REST API built with .NET 9 and SQLite — perfect for powering Todo apps, prototyping ideas, or plugging into any frontend with zero hassle.
 
-## Prerequisites
+## 🔧 Prerequisites
 
-Before running the project, make sure you have the following installed on your machine:
+-   [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+    
+-   (Optional) [DB Browser for SQLite](https://sqlitebrowser.org/) — to inspect the local database.
+    
 
-1. **.NET Core 8 SDK**
-   - Download and install the .NET Core 8 SDK from the [official .NET website](https://dotnet.microsoft.com/download/dotnet/8.0).
+## 🚀 Getting Started
+
+1.  **Clone the Repository**
+    
+    `git clone https://github.com/shaijut/TodoAPI.git`
+ 
+     - Move into the project folder `TodoAPI`
    
-2. **SQLite Browser**
-   - Download and install SQLite Browser (DB Browser for SQLite) from the [official website](https://sqlitebrowser.org/). This tool will help you view and manage the SQLite database used by the project.
+     In your terminal or command prompt, run:
+     `cd TodoAPI` 
+    
+2.  **Run the API**
+    
+    -   Double-click `Run-Todo-API.bat`
+        
+    -   This will restore dependencies and launch the API at `http://localhost:5083`
+        
+3.  **Test the API**
+    
+-   Visit `http://localhost:5083/swagger` to explore and test endpoints via Swagger UI
+    
+-   You’re now ready to use the API — or connect it to any frontend as a real backend for managing todos 🚀
+    
+-   Optionally, inspect the SQLite database or test with Postman (see below)
+        
 
-## Getting Started
+## 📦 SQLite Database
 
-### 1. Clone the Repository
+To view or edit stored data:
 
-First, clone the repository to your local machine: 
+1.  Open DB Browser for SQLite
+    
+2.  Load `TodoDatabase.db` (found in the project folder)
+    
 
-    git clone https://github.com/shaijut/TodoAPI.git
-    cd TodoAPI
+## 🧪 Testing with Postman
 
-### **2. Restore Dependencies**
-Navigate to the project directory and restore the necessary NuGet packages:
+1.  **Import Collection**
+    
+    -   In Postman, click _Import > Link_  
+        Use:  
+        `https://github.com/shaijut/TodoAPI/blob/main/API_Testing/Todo_API.postman_collection.json`
+        
+2.  **Run Requests**
+    
+    -   Ensure API is running at `http://localhost:5083`
+        
+    -   Use the included `GET`, `POST`, `PUT`, and `DELETE` endpoints.
+        
 
-    dotnet restore
+### API Endpoints
 
-### **3. Run the Project**
-Build and run the project using the following command:
+-   `GET /api/todos` — Get all todos
+    
+-   `GET /api/todos/{id}` — Get a todo by ID
+    
+-   `POST /api/todos` — Create a new todo
+    
+-   `PUT /api/todos/{id}` — Update an existing todo
+    
+-   `DELETE /api/todos/{id}` — Delete a todo
+    
 
-    dotnet run
+## ❗ Troubleshooting
 
-The API will start and be accessible at http://localhost:5083.
+-   Ensure `.NET 9 SDK` and `SQLite Browser` are installed correctly.
+    
+-   Confirm the API is running at `http://localhost:5083`.
+    
+-   Check the terminal for any startup errors.
+    
 
-### **4. Open the SQLite Database**
+## 🤝 Contributing
 
-**Launch DB Browser for SQLite.**
-Open the TodoDatabase.db file located in the project's directory (usually under App_Data or similar). This will allow you to view and manage the SQLite database.
+Fork, branch, and submit a PR — contributions are welcome!
 
-### Testing the API with Postman
+## 📄 License
 
-We have provided a Postman collection for testing the API endpoints. Follow these steps to import and use the Postman collection:
+MIT License
 
-**1. Import Postman Collection**
-Open Postman.
+## 📬 Contact
 
-Click on the Import button (usually found in the top-left corner).
-
-Select Import From Link and enter the following URL:
-
-       https://github.com/shaijut/TodoAPI/blob/main/Postman/Todo_API.postman_collection.json
-
-Click Continue and then Import to add the collection to Postman.
-
-**2. Run API Tests**
-
-Once the collection is imported:
-Open the collection in Postman.
-
-You will see various API requests such as GET, POST, PUT, and DELETE for the Todo API.
-
-Click on each request to configure and test the API endpoints. Ensure the API server is running locally at http://localhost:5083.
-
-**Endpoints Overview**
-
-    GET /api/todos: Retrieve all todos
-    GET /api/todos/{id}: Retrieve a specific todo by ID
-    POST /api/todos: Create a new todo
-    PUT /api/todos/{id}: Update an existing todo
-    DELETE /api/todos/{id}: Delete a specific todo by ID
-
-**Troubleshooting**
-
-If you encounter any issues, ensure that the .NET Core SDK and SQLite Browser are correctly installed and configured.
-
- - Verify that the API server is running and accessible at
-  -  http://localhost:5083. Check the project’s console output for any
-   errors or warnings.
-
-**Contributing**
-If you would like to contribute to this project, please fork the repository, make your changes, and submit a pull request.
-
-**License**
-This project is licensed under the MIT License.
-
-**Contact**
-For any questions or issues, please contact me :).
+For questions or feedback, feel free to reach out or open an issue.

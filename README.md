@@ -3,7 +3,7 @@
 
 ## 🔧 Prerequisites
 
--   [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+-   [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
     
 -   (Optional) [DB Browser for SQLite](https://sqlitebrowser.org/) — to inspect the local database.
     
@@ -15,9 +15,6 @@
     `git clone https://github.com/shaijut/TodoAPI.git`
  
      - Move into the project folder `TodoAPI`
-   
-     In your terminal or command prompt, run:
-     `cd TodoAPI` 
     
 2.  **Run the API**
     
@@ -78,7 +75,12 @@ To view or edit stored data:
 -   Confirm the API is running at `http://localhost:5083`.
     
 -   Check the terminal for any startup errors.
-    
+
+_   If the batch file doesn’t work, run the following commands manually in your terminal or command prompt:
+
+    cd TodoAPI        # Navigate to the project folder
+    dotnet restore    # Restore dependencies
+    dotnet run        # Start the API
 
 ## 🤝 Contributing
 

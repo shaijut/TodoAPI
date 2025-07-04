@@ -46,7 +46,7 @@ To view or edit stored data:
     
     -   In Postman, click _Import > Link_  
         Use:  
-        `https://github.com/shaijut/TodoAPI/blob/main/API_Testing/Todo_API.postman_collection.json`
+        `https://raw.githubusercontent.com/shaijut/TodoAPI/refs/heads/main/API_Testing/Todo_API.postman_collection.json`
         
 2.  **Run Requests**
     

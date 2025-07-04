@@ -76,7 +76,7 @@ To view or edit stored data:
     
 -   Check the terminal for any startup errors.
 
-_   If the batch file doesn’t work, run the following commands manually in your terminal or command prompt:
+-   If the batch file doesn’t work, run the following commands manually in your terminal or command prompt:
 
     cd TodoAPI        # Navigate to the project folder
     dotnet restore    # Restore dependencies

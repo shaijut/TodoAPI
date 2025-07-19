@@ -62,7 +62,7 @@ namespace TodoAPI.Repositories
             return null;
         }
 
-        public void Add(TodoItem todo)
+        public Int64 Add(TodoItem todo)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
@@ -72,15 +72,21 @@ namespace TodoAPI.Repositories
                 @"
                     INSERT INTO Todos (Title, IsCompleted)
                     VALUES (@title, @isCompleted);
+                    SELECT last_insert_rowid();
                 ";
                 command.Parameters.AddWithValue("@title", todo.Title);
                 command.Parameters.AddWithValue("@isCompleted", todo.IsCompleted ? 1 : 0);
 
-                command.ExecuteNonQuery();
+                //command.ExecuteNonQuery();
+
+                // ExecuteScalar returns the first column of the first row from the SELECT
+                var insertedId = (Int64)command.ExecuteScalar();
+
+                return insertedId;
             }
         }
 
-        public void Update(TodoItem todo)
+        public TodoItem Update(TodoItem todo)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
@@ -88,15 +94,29 @@ namespace TodoAPI.Repositories
                 var command = connection.CreateCommand();
                 command.CommandText =
                 @"
-                    UPDATE Todos
-                    SET Title = @title, IsCompleted = @isCompleted
-                    WHERE Id = @id;
-                ";
+            UPDATE Todos
+            SET Title = @title, IsCompleted = @isCompleted
+            WHERE Id = @id
+            RETURNING Id, Title, IsCompleted;
+        ";
                 command.Parameters.AddWithValue("@id", todo.Id);
                 command.Parameters.AddWithValue("@title", todo.Title);
                 command.Parameters.AddWithValue("@isCompleted", todo.IsCompleted ? 1 : 0);
 
-                command.ExecuteNonQuery();
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new TodoItem
+                        {
+                            Id = reader.GetInt64(0),
+                            Title = reader.GetString(1),
+                            IsCompleted = reader.GetInt64(2) == 1
+                        };
+                    }
+                }
+
+                return null; // Or throw if not found
             }
         }
 

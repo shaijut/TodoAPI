@@ -5,14 +5,15 @@ using TodoAPI.Repositories;
 namespace TodoAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/todo")]
     public class TodoController : ControllerBase
     {
         private readonly TodoRepository _repository = new TodoRepository();
 
         [HttpGet]
-        public ActionResult<List<TodoItem>> Get()
+        public async Task<ActionResult<List<TodoItem>>> Get()
         {
+            await Task.Delay(3000); // 3-second delay just if you want to show loader in screen :)
             return Ok(_repository.GetAll());
         }
 
@@ -30,8 +31,9 @@ namespace TodoAPI.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] TodoItem todo)
         {
-            _repository.Add(todo);
-            return CreatedAtAction(nameof(Get), new { id = todo.Id }, todo);
+            Int64 todoId = _repository.Add(todo);
+            todo.Id = todoId;
+            return CreatedAtAction(nameof(Get), new { id = todoId }, todo);
         }
 
         [HttpPut("{id}")]
@@ -44,8 +46,8 @@ namespace TodoAPI.Controllers
             }
 
             todo.Id = id;
-            _repository.Update(todo);
-            return NoContent();
+            TodoItem updated = _repository.Update(todo);
+            return Ok(updated);
         }
 
         [HttpDelete("{id}")]
